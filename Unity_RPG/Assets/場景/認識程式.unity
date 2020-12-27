@@ -140,7 +140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &510927538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,6 +171,8 @@ MonoBehaviour:
   sound: {fileID: 8300000, guid: 02b7fd5bf921de44f8d2a372963c4c8c, type: 3}
   objA: {fileID: 571595494}
   objB: {fileID: 4381176710813596161, guid: fe40cd98c989a424a9f5236ad12d68be, type: 3}
+  tra: {fileID: 0}
+  cam: {fileID: 0}
 --- !u!135 &510927539
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -378,6 +380,8 @@ MonoBehaviour:
   sound: {fileID: 0}
   objA: {fileID: 0}
   objB: {fileID: 0}
+  tra: {fileID: 0}
+  cam: {fileID: 0}
 --- !u!65 &1526456266
 BoxCollider:
   m_ObjectHideFlags: 0
