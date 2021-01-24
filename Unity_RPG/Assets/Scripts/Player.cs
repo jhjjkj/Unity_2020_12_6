@@ -43,6 +43,7 @@ public class Player : MonoBehaviour
         // 剛體欄位 = 取得元件<剛體>()
         rig = GetComponent<Rigidbody2D>();
         ani = GetComponent<Animator>();
+        aud = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -50,6 +51,7 @@ public class Player : MonoBehaviour
         GetHorizontal();
         Move();
         Jump();
+        Fire();
     }
 
     // 在 Unity 內繪製圖示
@@ -129,7 +131,15 @@ public class Player : MonoBehaviour
     /// </summary>
     private void Fire()
     {
-
+        if (Input.GetKeyDown(KeyCode.Mouse0))       // 如果按下左鍵 (手機為觸控)
+        {
+            // 音效來源.播放一次音效(音效片段, 音量)
+            aud.PlayOneShot(soundFire, Random.Range(1.2f, 1.5f));
+            // 區域變數 名稱 = 生成(物件, 座標, 角度)
+            GameObject temp = Instantiate(bullet, pointSpawn.position, pointSpawn.rotation);
+            // 暫存子彈.取得元件<剛體>().添加推力(生成點右邊 * 子彈速度 + 生成點上方 * 高度)
+            temp.GetComponent<Rigidbody2D>().AddForce(pointSpawn.right * speedBullet + pointSpawn.up * 150);
+        }
     }
 
     /// <summary>
