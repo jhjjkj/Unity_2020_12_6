@@ -105,7 +105,7 @@ public class Player : MonoBehaviour
         if (isGrounded && Input.GetKeyDown(KeyCode.Space))
         {
             rig.AddForce(new Vector2(0, jump));         // 剛體.添加推力(二維向量)
-            isGrounded = false;                         // 不在地面上
+            ani.SetTrigger("跳躍觸發");
         }
 
         // 碰撞物件 = 2D 物理.覆蓋圖形(中心點, 半徑, 圖層) - 1 << 圖層
@@ -120,6 +120,8 @@ public class Player : MonoBehaviour
         {
             isGrounded = false;                          // 不在地面上
         }
+
+        ani.SetBool("是否在地面上", isGrounded);
     }
 
     /// <summary>
