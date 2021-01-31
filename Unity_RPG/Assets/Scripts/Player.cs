@@ -63,6 +63,20 @@ public class Player : MonoBehaviour
         Gizmos.DrawSphere(transform.position + offset, radius);
     }
 
+    /// <summary>
+    /// 觸發事件
+    /// </summary>
+    /// <param name="collision">碰到的物件資訊</param>
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        // 如果 碰到物件的標籤 為 鑰匙
+        if (collision.tag == "鑰匙")
+        {
+            // 刪除(一定要放 GameObject)
+            Destroy(collision.gameObject);
+        }
+    }
+
     #region 方法
     /// <summary>
     /// 取得水平軸向
